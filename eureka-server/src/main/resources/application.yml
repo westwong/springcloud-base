@@ -1,0 +1,18 @@
+server:
+  port: 12345
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost  #服务注册中心实例的主机名
+  server:
+    enableSelfPreservation: false   #关闭自我保护
+    eviction-interval-timer-in-ms: 10000   # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+  client:
+    register-with-eureka: false #是否向服务注册中心注册自己
+    fetch-registry: false #是否检索服务
+    serviceUrl.defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #服务注册中心的配置内容，指定服务注册中心的位置
+
+

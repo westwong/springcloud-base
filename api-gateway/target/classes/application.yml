@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+
+    name: routers-server
+  servlet:
+    multipart:
+      #请求的总文件大小
+      maxRequestSize: 1024MB
+      #单个文件大小
+      maxFileSize: 500MB
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:12345/eureka/
+
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie,host,content-length,connection,content-encoding,server,transfer-encoding,x-application-context
+  host:
+    connect-timeout-millis: 40000
+    socket-timeout-millis: 60000
+  set-content-length: true
+
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
